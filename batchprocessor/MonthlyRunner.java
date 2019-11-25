@@ -31,28 +31,22 @@ public class MonthlyRunner {
                 String data = scanFile.nextLine();
                 //Tell the monthly item object to pricess the data
                 mi.process(data);
-            } catch (FileNotFoundException e) {
+            } 
+            catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                System.out.println("Unknow file type found. Message "+ e.getMessage());
             }
 
         }
 
     }
 
-    private static MonthlyItem createMonthlyItem(String fileType) {
-        MonthlyItem monthlyItem = null;
-        if (fileType.equalsIgnoreCase(("Employee"))) {
-            monthlyItem = new Employee();
-
-        } else if (fileType.equalsIgnoreCase("Annuity")) {
-
-            monthlyItem = new Annuity();
-
-        } else if (fileType.equalsIgnoreCase("LifeInsurance")) {
-            monthlyItem = new LifeInsurance();
-
-        }
-        return monthlyItem;
+    private static MonthlyItem createMonthlyItem(String fileType) throws Exception {
+        String fulClassName = "batchprocessor." + fileType;
+        // use reflection to create an object , based on a string representation ofthe a class name
+        return (MonthlyItem) Class.forName(fulClassName).getDeclaredConstructor().newInstance();
     }
 }
