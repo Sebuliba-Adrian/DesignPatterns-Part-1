@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MonthlyRunner",
+            "request": "launch",
+            "mainClass": "batchprocessor.MonthlyRunner",
+            "projectName": "BatchProcessor_c803fea"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MonthlyRunner",
+            "request": "launch",
+            "mainClass": "MonthlyRunner",
+            "projectName": "BatchProcessor_c803fea"
+        }
+    ]
+}
