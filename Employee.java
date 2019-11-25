@@ -9,10 +9,17 @@ public class Employee implements MonthlyItem {
     protected String routingTransit;
     protected String accountNumber;
 
-
     @Override
     public void process(String data) {
-        // TODO Auto-generated method stub
+      String[] allData = data.split(" ");
+      firstName = allData[0];
+      lastName = allData[1];
+      payrollAmount = Double.parseDouble(allData[2]);
+      bankName = allData[3];
+      routingTransit = allData[4];
+      accountNumber = allData[5];
+
+      System.out.println("Processing payroll for " + firstName +" "+ lastName+ " in the amount of "+ payrollAmount);
 
     }
 
